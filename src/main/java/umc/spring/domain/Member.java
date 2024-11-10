@@ -29,7 +29,6 @@ public class Member extends BaseEntity {
     private String name;
 
     @Enumerated(EnumType.STRING)
-
     @Column(columnDefinition = "VARCHAR(10)")
     private Gender gender;
 
