@@ -10,6 +10,8 @@ import umc.spring.domain.mapping.ReviewImage;
 import java.util.ArrayList;
 import java.util.List;
 
+import static umc.spring.domain.QRegion.region;
+
 @Entity
 @Getter
 @Builder
@@ -36,4 +38,15 @@ public class Review extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
     private Store store;
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", score='" + score + '\'' +
+                ", member=" + member +
+                ", store=" + store +
+                '}';
+    }
 }
