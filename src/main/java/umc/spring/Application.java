@@ -75,7 +75,7 @@ public class Application {
 
 			// 쿼리 호출 및 출력
 			missionService.getMissionsByRegionAndMember(regionId, memberId, cursorValue, PageRequest.of(0, pageSize))
-					.forEach(System.out::println);*/
+					.forEach(System.out::println);
 
 			//진행중, 진행완료 설정할 파라미터
 			Long memberId = 1L; // 테스트할 멤버 ID
@@ -89,6 +89,6 @@ public class Application {
 			// 완료된 미션 출력
 			System.out.println("=== 완료된 미션 ===");
 			Page<Mission> completedMissions = missionService.getCompletedMissions(memberId, pageable);
-			completedMissions.forEach(mission -> System.out.println(mission));
+			completedMissions.forEach(mission -> System.out.println(mission));*/
 		};
 	}}
