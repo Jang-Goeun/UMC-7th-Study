@@ -23,6 +23,6 @@ public class FoodCategory extends BaseEntity {
     @Column(nullable = false, length = 15)
     private String name;
 
-    @OneToMany(mappedBy = "foodCategory", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "preferCategory", cascade = CascadeType.ALL)
     private List<MemberPrefer> memberPreferList = new ArrayList<>();
 }
