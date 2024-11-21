@@ -3,7 +3,7 @@ package umc.spring.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import umc.spring.repository.Review.ReviewRepository;
+import umc.spring.repository.ReviewRepository.ReviewRepository;
 
 @Service
 @RequiredArgsConstructor

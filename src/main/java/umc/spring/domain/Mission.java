@@ -3,6 +3,7 @@ package umc.spring.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import jakarta.persistence.Id;
+import org.hibernate.annotations.ColumnDefault;
 import umc.spring.domain.common.BaseEntity;
 import umc.spring.domain.mapping.MemberMission;
 
