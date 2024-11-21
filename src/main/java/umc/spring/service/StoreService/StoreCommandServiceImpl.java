@@ -35,5 +35,20 @@ public class StoreCommandServiceImpl implements StoreCommandService{
         // Store 저장 및 반환
         return storeRepository.save(newStore);
     }
+
+    /**
+     * 주어진 storeId 가게 ID가 유효한지 확인
+     *
+     * @param storeId 가게 ID
+     * @return 가게 존재하면 true, 아니면 false
+     */
+    @Override
+    public boolean doStoreExist(Long storeId) {
+        if (storeId == null) {
+            return false; // null 유효하지 않음
+        }
+
+        return storeRepository.existsById(storeId);
+    }
 }
 

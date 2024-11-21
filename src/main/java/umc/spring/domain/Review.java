@@ -3,6 +3,9 @@ package umc.spring.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import jakarta.persistence.Id;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.spring.domain.common.BaseEntity;
 import umc.spring.domain.mapping.MemberAgree;
 import umc.spring.domain.mapping.ReviewImage;
@@ -14,6 +17,8 @@ import static umc.spring.domain.QRegion.region;
 
 @Entity
 @Getter
+@DynamicUpdate
+@DynamicInsert
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -26,6 +31,7 @@ public class Review extends BaseEntity {
     @Column(nullable = false, length = 20)
     private String title;
 
+    @ColumnDefault("0.0")
     private Float score;
 
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)

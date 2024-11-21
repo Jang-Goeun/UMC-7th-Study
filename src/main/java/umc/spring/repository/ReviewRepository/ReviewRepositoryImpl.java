@@ -1,4 +1,4 @@
-package umc.spring.repository.Review;
+package umc.spring.repository.ReviewRepository;
 
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import umc.spring.domain.Member;
 import umc.spring.domain.Store;
-import umc.spring.domain.QReview;
 import umc.spring.domain.Review;
 
 @Repository

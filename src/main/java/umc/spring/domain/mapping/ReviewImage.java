@@ -7,6 +7,7 @@ import umc.spring.domain.common.BaseEntity;
 
 @Entity
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -22,4 +23,11 @@ public class ReviewImage extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "review_id")
     private Review review;
+
+    public void setReview(Review review){
+        if(this.review != null)
+            review.getReviewImageList().remove(this);
+        this.review = review;
+        review.getReviewImageList().add(this);
+    }
 }

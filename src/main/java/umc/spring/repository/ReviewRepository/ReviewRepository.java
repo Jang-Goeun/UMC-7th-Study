@@ -1,4 +1,4 @@
-package umc.spring.repository.Review;
+package umc.spring.repository.ReviewRepository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import umc.spring.domain.Review;
