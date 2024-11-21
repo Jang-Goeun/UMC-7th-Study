@@ -24,6 +24,9 @@ public enum ErrorStatus implements BaseErrorCode {
     // 가게 관련 에러
     STORE_NOT_FOUND(HttpStatus.BAD_REQUEST, "STORE001", "가게를 찾을 수 없습니다."),
 
+    // 미션 관련 에러
+    MISSION_NOT_FOUND(HttpStatus.BAD_REQUEST, "MISSION001", "미션을 찾을 수 없습니다."),
+
     // 푸드 카테고리 관련 에러
     FOOD_CATEGORY_NOT_FOUND(HttpStatus.BAD_REQUEST, "FOODCATEGORY001", "푸드 카테고리를 찾을 수 없습니다."),
 

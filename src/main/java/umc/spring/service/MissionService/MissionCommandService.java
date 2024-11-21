@@ -6,4 +6,5 @@ import umc.spring.web.dto.MissionRequestDTO;
 
 public interface MissionCommandService {
     public Mission registerMission(MissionRequestDTO.@Valid MissionRegisterDto request);
+    public boolean doMissionExist(Long missionId);
 }

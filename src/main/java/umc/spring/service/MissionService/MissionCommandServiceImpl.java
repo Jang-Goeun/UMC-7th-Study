@@ -34,5 +34,20 @@ public class MissionCommandServiceImpl implements MissionCommandService {
         // Review 저장 및 반환
         return missionRepository.save(newMission);
     }
+
+    /**
+     * 주어진 missionId 미션 ID가 유효한지 확인
+     *
+     * @param missionId 미션 ID
+     * @return 미션 존재하면 true, 아니면 false
+     */
+    @Override
+    public boolean doMissionExist(Long missionId) {
+        if (missionId == null) {
+            return false; // null 유효하지 않음
+        }
+
+        return missionRepository.existsById(missionId);
+    }
 }
 
