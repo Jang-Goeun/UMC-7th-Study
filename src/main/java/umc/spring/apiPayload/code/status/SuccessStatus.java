@@ -11,7 +11,10 @@ import umc.spring.apiPayload.code.ReasonDTO;
 public enum SuccessStatus implements BaseCode {
 
     // 일반적인 응답
-    _OK(HttpStatus.OK, "COMMON200", "성공입니다.");
+    _OK(HttpStatus.OK, "COMMON200", "성공입니다."),
+
+    // 회원가입 성공
+    CREATE_MEMBER(HttpStatus.OK, "MEMBER200", "회원가입이 완료되었습니다.");
 
     private final HttpStatus httpStatus;
     private final String code;
