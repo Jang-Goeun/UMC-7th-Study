@@ -30,6 +30,32 @@ public class ReviewConverter {
                 .build();
     }
 
+    // 내가 작성한 리뷰
+    public static ReviewResponseDTO.MyReviewDTO myReviewDTO(Review review){
+        return ReviewResponseDTO.MyReviewDTO.builder()
+                .ownerNickname(review.getMember().getName())
+                .score(review.getScore())
+                .createdAt(review.getCreatedAt().toLocalDate())
+                .body(review.getBody())
+                .build();
+    }
+
+    public static ReviewResponseDTO.MyReviewListDTO myReviewListDTO(Page<Review> reviewList){
+
+        List<ReviewResponseDTO.MyReviewDTO> myReviewDTOList = reviewList.stream()
+                .map(ReviewConverter::myReviewDTO).collect(Collectors.toList());
+
+        return ReviewResponseDTO.MyReviewListDTO.builder()
+                .isLast(reviewList.isLast())
+                .isFirst(reviewList.isFirst())
+                .totalPage(reviewList.getTotalPages())
+                .totalElements(reviewList.getTotalElements())
+                .listSize(myReviewDTOList.size())
+                .reviewList(myReviewDTOList)
+                .build();
+    }
+
+    // 특정 가게 리뷰 목록
     public static ReviewResponseDTO.ReviewPreViewDTO reviewPreViewDTO(Review review){
         return ReviewResponseDTO.ReviewPreViewDTO.builder()
                 .ownerNickname(review.getMember().getName())

@@ -64,5 +64,13 @@ public class ReviewCommandServiceImpl implements ReviewCommandService {
         Page<Review> StorePage = reviewRepository.findAllByStore(store, PageRequest.of(page, 10));
         return StorePage;
     }
+
+    @Override
+    public Page<Review> getMyReviewList(Long MemberId, Integer page){
+        Member member = memberRepository.findById(MemberId).get();
+
+        Page<Review> MemberPage = reviewRepository.findAllByMember(member, PageRequest.of(page, 10));
+        return MemberPage;
+    }
 }
 
