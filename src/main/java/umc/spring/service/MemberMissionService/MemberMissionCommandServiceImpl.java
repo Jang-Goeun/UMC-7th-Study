@@ -1,6 +1,8 @@
 package umc.spring.service.MemberMissionService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.spring.apiPayload.code.status.ErrorStatus;
@@ -9,6 +11,7 @@ import umc.spring.apiPayload.exception.handler.MissionHandler;
 import umc.spring.converter.MemberMissionConverter;
 import umc.spring.domain.Member;
 import umc.spring.domain.Mission;
+import umc.spring.domain.Review;
 import umc.spring.domain.mapping.MemberMission;
 import umc.spring.repository.MemberMissionRepository.MemberMissionRepository;
 import umc.spring.repository.MemberRepository.MemberRepository;
@@ -36,5 +39,13 @@ public class MemberMissionCommandServiceImpl implements MemberMissionCommandServ
         MemberMission newMemberMission = MemberMissionConverter.toMemberMission(request, member, mission);
 
         return memberMissionRepository.save(newMemberMission);
+    }
+
+    @Override
+    public Page<MemberMission> getMemberMissionList(Long MemberId, Integer page){
+        Member member = memberRepository.findById(MemberId).get();
+
+        Page<MemberMission> MemberPage = memberMissionRepository.findAllByMember(member, PageRequest.of(page, 10));
+        return MemberPage;
     }
 }
