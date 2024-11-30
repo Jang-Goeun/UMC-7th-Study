@@ -8,6 +8,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import umc.spring.domain.common.BaseEntity;
 import umc.spring.domain.enums.Gender;
 import umc.spring.domain.enums.MemberStatus;
+import umc.spring.domain.enums.Role;
 import umc.spring.domain.enums.SocialType;
 import umc.spring.domain.mapping.MemberAgree;
 import umc.spring.domain.mapping.MemberMission;
@@ -33,6 +34,12 @@ public class Member extends BaseEntity {
     @Column(nullable = false, length = 20)
     private String name;
 
+    @Column(nullable = false, length = 40)
+    private String address;
+
+    @Column(nullable = false, length = 40)
+    private String specAddress;
+
     //@Column(nullable = true, length = 20)
     private String nikname;
 
@@ -42,11 +49,6 @@ public class Member extends BaseEntity {
 
     private Integer age;
 
-    @Column(nullable = false, length = 40)
-    private String address;
-
-    @Column(nullable = false, length = 40)
-    private String specAddress;
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
@@ -57,11 +59,17 @@ public class Member extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private SocialType socialType;
 
-    //@Column(nullable = false, length = 50)
+    @Column(nullable = false, unique = true)
     private String email;
 
-   // @Column(nullable = false, length = 13)
+    @Column(nullable = false, length = 13)
     private String phone;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @ColumnDefault("0")
     private Integer point;
@@ -87,5 +95,9 @@ public class Member extends BaseEntity {
                 ", phone=" + phone +
                 ", point=" + point +
                 '}';
+    }
+
+    public void encodePassword(String password) {
+        this.password = password;
     }
 }
