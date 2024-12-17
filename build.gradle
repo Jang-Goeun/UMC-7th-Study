@@ -20,7 +20,7 @@ jar {
 
 bootJar {
 	archiveClassifier = ''
-} 
+}
 
 configurations {
 	compileOnly {
